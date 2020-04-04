@@ -20,7 +20,7 @@ dependencies:
 
 hooks:
     build: |
-      pipenv install --system --deploy
+      pipenv install --deploy
 
 disk: 1024
 

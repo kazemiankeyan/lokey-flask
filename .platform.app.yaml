@@ -27,12 +27,3 @@ disk: 1024
 web:
   commands:
     start: "python server.py"
-  locations:
-    "./":
-      root: "./"
-      passthru: true
-      allow: false
-    "/static":
-      passthru: true
-      root: "static/"
-      allow: true

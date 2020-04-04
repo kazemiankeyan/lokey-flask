@@ -40,4 +40,4 @@ def details(artist):
     return render_template('home.html', results=[], bool1='None', bool2='Block', target=artist, slk_results=slk, lk_results=lk, klk_results=klk)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+     app.run(host='0.0.0.0', port=8888)

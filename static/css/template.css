@@ -12,6 +12,16 @@ a:hover {
     color: #FDB925;
 }
 
+img {
+  text-align: center;
+  width: 80%;
+  height: auto;
+}
+
+#loading {
+  justify-content: center;
+}
+
 #artist-search {
     background: #231F20;
     border: none;
@@ -30,11 +40,11 @@ h2, h3 {
 }
 
 h3 {
-  font-size: 25px;
+  font-size: calc(1em + 0.7vw);
 }
 
 h2 {
-  font-size: 40px;
+  font-size: calc(1em + 2.5vw);
 }
 
 h4 {

@@ -20,8 +20,6 @@ mounts:
     source_path: uploads
 
 build:
-  |
-    pipenv install --system --deploy
 
 web:
   commands:

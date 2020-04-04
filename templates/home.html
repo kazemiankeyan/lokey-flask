@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/template.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <title>Lo-Key</title>
+  </head>
+  <body>
+    <h1>lo-key</h1>
+    <h5 class="credo">discover the undiscovered</h5>
+  <div class="container">
+  <form action="{{url_for('search')}}" method="post">
+    <input id="artist-search" name="text" placeholder="enter the name of a musical artist...">
+    <div class="line"><hr></div>
+    <div class="button"><input type="submit" value="search"></div>
+    <div class="line"><hr></div>
+  </form>
+    <div id="loading" style="display:none;">
+      <!-- <img src="loading.gif"/> -->
+      <h2>searching the far corners of the universe for some lo-key artists ...</h2>
+    </div>
+    <div id="results" style="display:{{bool1}}">
+    {% for artist in results %}
+    <a class="list-group-item-dark" onclick="loading()" id='artist' href='/artist_details/{{artist}}'>{{artist}}</a>
+    {% endfor %}
+    </div>
+    <div style="display:{{bool2}}">
+      <h3>if you like</h3>
+      <h2 class="target">{{target}}</h2>
+      <h3>we think you would like</h3>
+      <h4>( choose a degree of "lo-key" )</h4>
+      <div class="line"><hr></div>
+      <div class="btn-group-justified text-center">
+        <button onclick="slk()">super lo-key</button>
+        <button onclick="lk()">lo-key</button>
+        <button onclick="klk()">kinda lo-key</button>
+      </div>
+      <div id="results">
+        <div id="slkResults" style="display:none">
+          {% for artist in slk_results %}
+          <a class="list-group-item-dark" target="_blank" href='https://open.spotify.com/artist/{{artist.data.SpotifyId}}'>{{artist.data.ArtistName}}</a>
+          {% endfor %}
+        </div>
+        <div id="lkResults" style="display:none">
+          {% for artist in lk_results %}
+          <a class="list-group-item-dark" target="_blank" href='https://open.spotify.com/artist/{{artist.data.SpotifyId}}'>{{artist.data.ArtistName}}</a>
+          {% endfor %}
+        </div>
+        <div id="klkResults" style="display:none">
+          {% for artist in klk_results %}
+          <a class="list-group-item-dark" target="_blank" href='https://open.spotify.com/artist/{{artist.data.SpotifyId}}'>{{artist.data.ArtistName}}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
+<script>
+  function loading()
+  {
+    var load = document.getElementById('loading');
+    load.style.display = "block";
+    var results = document.getElementById('results');
+    results.style.display = "none";
+  }
+
+  function slk() {
+    var slk = document.getElementById('slkResults');
+    slk.style.display = "block";
+    var lk = document.getElementById('lkResults');
+    lk.style.display = "none";
+    var klk = document.getElementById('klkResults');
+    klk.style.display = "none";
+  }
+  function lk() {
+    var slk = document.getElementById('slkResults');
+    slk.style.display = "none";
+    var lk = document.getElementById('lkResults');
+    lk.style.display = "block";
+    var klk = document.getElementById('klkResults');
+    klk.style.display = "none";
+  }
+  function klk() {
+    var slk = document.getElementById('slkResults');
+    slk.style.display = "none";
+    var lk = document.getElementById('lkResults');
+    lk.style.display = "none";
+    var klk = document.getElementById('klkResults');
+    klk.style.display = "block";
+  }
+</script>

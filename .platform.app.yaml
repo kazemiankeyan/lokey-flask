@@ -20,7 +20,7 @@ dependencies:
 
 hooks:
     build: |
-      pipenv install --deploy
+      pip install -r reqs.txt
 
 disk: 1024
 

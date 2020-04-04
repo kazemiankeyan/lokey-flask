@@ -118,6 +118,16 @@ button:hover{
   color: #1e2129;
 }
 
+.option:active{
+  background-color: white;
+  color: #1e2129;
+}
+
+.option:focus{
+  background-color: white;
+  color: #1e2129;
+}
+
 input[type="submit"]:hover
 {
   background-color: white;
